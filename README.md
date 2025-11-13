@@ -4,7 +4,6 @@
 
 > 📢 *Note: Due to intellectual property and academic integrity concerns, the model implementation and weights are not publicly released. However, we provide open access to the training corpus samples and evaluation datasets to support academic benchmarking and reproducibility.*
 
--[图摘要.tif](https://github.com/user-attachments/files/23521758/default.tif)
 --
 
 ## 📂 Project Structure
