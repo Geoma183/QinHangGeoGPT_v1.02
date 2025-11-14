@@ -1,74 +1,69 @@
-\# QHGeoGPT: Geological Domain LLM for the Qin–Hang Metallogenic Belt
+QinHangGeoGPT: A Domain-Specific Geological Language Model for the Qin–Hang Metallogenic Belt
 
+This repository provides the complete reproducible pipeline used to build QinHangGeoGPT, a domain-specific geological large language model integrating:
 
+PDF preprocessing & chunking
 
-\## Overview
+FAISS-based semantic vector retrieval (RAG)
 
-\- One paragraph about the goal of the project.
+Neo4j knowledge graph construction
 
-\- High-level description of the pipeline (PDF → Text → Vectors/KG → LoRA → Evaluation).
+LoRA-based instruction fine-tuning
 
+Objective & subjective QA evaluation
 
+All code is fully open-source, self-contained, and written to international reproducibility standards to satisfy peer-review requirements.
 
-\## Repository Structure
+**🔍 1. Project Overview**
 
-\- Briefly list each script:
+QinHangGeoGPT is a knowledge-enhanced language model designed for:
 
-&nbsp; - `pdf\_to\_chunks.py` – PDF preprocessing and text chunking
+Geological document understanding
 
-&nbsp; - `vectorize\_faiss.py` – Build FAISS index from JSON chunks
+Knowledge graph reasoning
 
-&nbsp; - `build\_kg\_from\_excel.py` – Construct Neo4j KG from Excel triples
+RAG-augmented question answering
 
-&nbsp; - `train\_lora.py` – LoRA fine-tuning pipeline
+Objective (multiple-choice) and subjective (long-form) evaluation
 
-&nbsp; - `evaluate\_objective.py` – Objective MCQ evaluation
+This repository includes the full computational pipeline from PDFs → vectors/KG → fine-tuning → evaluation.
 
-&nbsp; - `evaluate\_subjective.py` – Subjective question evaluation
+**📁 2. Repository Structure**
 
+QinHangGeoGPT_v1.02/
+│
+├── preprocess_pdf_chunks.py           # PDF → JSON text chunks
+├── rag_vectorizer_faiss.py            # JSON chunks → FAISS vector index
+├── build_qh_kg_from_excel.py          # Excel → Neo4j knowledge graph
+├── train_qhgeogpt_lora.py             # LoRA instruction fine-tuning
+├── evaluation_objective.py            # Multiple-choice evaluation
+├── evaluation_subjective.py           # Subjective QA evaluation
+│
+├── data/
+│   ├── eval/
+│      ├── objective_questions_v1.00.xlsx
+│      └── subjective_questions_v1.00.xlsx
+│
+├── requirements.txt
+├── LICENSE (MIT)
+└── README.md
 
+**⚙️ 3. Installation**
+Install Python dependencies
+pip install -r requirements.txt
+Required libraries include:
+torch
+transformers
+peft
+bitsandbytes
+sentence-transformers
+faiss-cpu / faiss-gpu
+pandas
+openpyxl
+neo4j
+PyMuPDF, pdfplumber, pdfminer.six (PDF parsing)
+🚀 4. End-to-End Pipeline
 
-\## Installation
+This section shows how to reproduce the entire system.
 
-\- `git clone ...`
-
-\- `pip install -r requirements.txt`
-
-
-
-\## End-to-End Usage
-
-1\. Run `pdf\_to\_chunks.py` to create JSON text chunks.
-
-2\. Run `vectorize\_faiss.py` to build the FAISS index.
-
-3\. Run `build\_kg\_from\_excel.py` to construct the KG in Neo4j.
-
-4\. Run `train\_lora.py` to fine-tune the model (optional if you release weights).
-
-5\. Run `evaluate\_objective.py` and `evaluate\_subjective.py` to reproduce the experiments.
-
-
-
-\## Data Format
-
-\- JSON chunk format
-
-\- Excel KG format
-
-\- Evaluation Excel format (columns)
-
-
-
-\## Citation
-
-\- Your paper citation.
-
-
-
-\## License
-
-\- MIT License note.
-
-
-
+Step 1 — Convert PDFs into JSON text chunks
