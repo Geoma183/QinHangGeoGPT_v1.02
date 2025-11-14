@@ -147,12 +147,6 @@ Complete scripts for reconstruction
 Released under the MIT License.
 
 📚 7. Citation
-Cai, B. et al. (2025).
 QinHangGeoGPT: A Domain-Specific Large Language Model for Metallogenic Belt Knowledge Reasoning.
 Under Review.
 
-👨‍💻 8. Maintainer
-
-Author: Dr. [Your Name]
-Sun Yat-sen University
-Email: your_email@sysu.edu.cn
