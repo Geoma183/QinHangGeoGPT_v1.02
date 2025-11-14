@@ -1,23 +1,74 @@
-# QHGeoGPT: A Domain-Specific Language Model for Intelligent Geological Reasoning in the Qin-Hang Metallogenic Belt
+\# QHGeoGPT: Geological Domain LLM for the Qin–Hang Metallogenic Belt
 
-**QHGeoGPT** is a domain-adapted language model developed to address semantic, causal, and terminological challenges in geoscientific question answering. It is designed specifically for applications in the Qin-Hang metallogenic belt, integrating geological ontology, retrieval-augmented generation (RAG), and curated domain corpora.
 
-> 📢 *Note: Due to intellectual property and academic integrity concerns, the model implementation and weights are not publicly released. However, we provide open access to the training corpus samples and evaluation datasets to support academic benchmarking and reproducibility.*
 
---
+\## Overview
 
-## 📂 Project Structure
+\- One paragraph about the goal of the project.
 
-```bash
-QHGeoGPT/
-│
-├── README.md                   <- This file
-├── data/
-│   ├── train_corpus_sample/    <- Sample domain-specific training texts (annotated)
-│   └── evaluation_set/         <- Subjective & objective QA pairs, terminology lists
-│
-├── figures/                    <- Architecture diagrams and performance plots
-│
-├── papers/                     <- Related publications and citation metadata
-│
-└── LICENSE                     <- MIT License
+\- High-level description of the pipeline (PDF → Text → Vectors/KG → LoRA → Evaluation).
+
+
+
+\## Repository Structure
+
+\- Briefly list each script:
+
+&nbsp; - `pdf\_to\_chunks.py` – PDF preprocessing and text chunking
+
+&nbsp; - `vectorize\_faiss.py` – Build FAISS index from JSON chunks
+
+&nbsp; - `build\_kg\_from\_excel.py` – Construct Neo4j KG from Excel triples
+
+&nbsp; - `train\_lora.py` – LoRA fine-tuning pipeline
+
+&nbsp; - `evaluate\_objective.py` – Objective MCQ evaluation
+
+&nbsp; - `evaluate\_subjective.py` – Subjective question evaluation
+
+
+
+\## Installation
+
+\- `git clone ...`
+
+\- `pip install -r requirements.txt`
+
+
+
+\## End-to-End Usage
+
+1\. Run `pdf\_to\_chunks.py` to create JSON text chunks.
+
+2\. Run `vectorize\_faiss.py` to build the FAISS index.
+
+3\. Run `build\_kg\_from\_excel.py` to construct the KG in Neo4j.
+
+4\. Run `train\_lora.py` to fine-tune the model (optional if you release weights).
+
+5\. Run `evaluate\_objective.py` and `evaluate\_subjective.py` to reproduce the experiments.
+
+
+
+\## Data Format
+
+\- JSON chunk format
+
+\- Excel KG format
+
+\- Evaluation Excel format (columns)
+
+
+
+\## Citation
+
+\- Your paper citation.
+
+
+
+\## License
+
+\- MIT License note.
+
+
+
